@@ -4,9 +4,9 @@
 # For full specification on the configuration of this file visit:
 # https://github.com/hashicorp/integration-template#metadata-configuration
 integration {
-  name = "Infisical"
-  description = "The Infisical plugin can be used with HashiCorp Packer to read secrets from Infisical."
-  identifier = "packer/infisical/infisical"
+  name = "Hanzo KMS"
+  description = "The Hanzo KMS plugin can be used with HashiCorp Packer to read secrets from Hanzo KMS."
+  identifier = "packer/hanzokms/kms"
   # flags = ["hcp-ready"]
   component {
     type = "data-source"

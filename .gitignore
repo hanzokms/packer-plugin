@@ -1,6 +1,6 @@
 main
 dist/*
-packer-plugin-infisical
+packer-plugin-kms
 .docs
 .DS_Store
 *.sw*

@@ -1,4 +1,4 @@
-NAME=infisical
+NAME=kms
 BINARY=packer-plugin-${NAME}
 PLUGIN_FQN="$(shell grep -E '^module' <go.mod | sed -E 's/module *//')"
 
@@ -31,5 +31,5 @@ generate: install-packer-sdc
 	@go generate ./...
 	@rm -rf .docs
 	@packer-sdc renderdocs -src "docs" -partials docs-partials/ -dst ".docs/"
-	@./.web-docs/scripts/compile-to-webdocs.sh "." ".docs" ".web-docs" "infisical"
+	@./.web-docs/scripts/compile-to-webdocs.sh "." ".docs" ".web-docs" "kms"
 	@rm -r ".docs"

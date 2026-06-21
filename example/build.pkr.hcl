@@ -1,13 +1,13 @@
 packer {
   required_plugins {
-    infisical = {
+    kms = {
       version = ">= 1.0.0"
-      source  = "github.com/infisical/infisical"
+      source  = "github.com/hanzokms/kms"
     }
   }
 }
 
-data "infisical-secrets" "dev-secrets" {
+data "kms-secrets" "dev-secrets" {
   folder_path = "/"
   env_slug    = "dev"
   project_id  = "00000000-0000-0000-0000-000000000000"
@@ -19,7 +19,7 @@ data "infisical-secrets" "dev-secrets" {
 }
 
 locals {
-  secrets = data.infisical-secrets.dev-secrets.secrets
+  secrets = data.kms-secrets.dev-secrets.secrets
 }
 
 source "null" "basic-example" {

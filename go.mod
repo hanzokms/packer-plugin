@@ -1,4 +1,4 @@
-module github.com/infisical/packer-plugin-infisical
+module github.com/hanzokms/packer-plugin
 
 go 1.24.3
 

@@ -1,4 +1,4 @@
-package infisicalclient
+package kmsclient
 
 import (
 	"fmt"
@@ -50,7 +50,7 @@ func (client Client) GetServiceTokenDetailsV2() (GetServiceTokenDetailsResponse,
 func (client Client) OidcMachineIdentityAuth() (string, error) {
 	tokenEnvironmentName := client.Config.OidcTokenEnvName
 	if tokenEnvironmentName == "" {
-		tokenEnvironmentName = INFISICAL_AUTH_JWT_NAME
+		tokenEnvironmentName = KMS_AUTH_JWT_NAME
 	}
 
 	authJwt := os.Getenv(tokenEnvironmentName)
@@ -87,7 +87,7 @@ func (client Client) KubernetesMachineIdentityAuth() (string, error) {
 	tokenPath := client.Config.ServiceAccountTokenPath
 
 	if tokenPath == "" {
-		tokenPath = INFISICAL_KUBERNETES_SERVICE_ACCOUNT_DEFAULT_TOKEN_PATH
+		tokenPath = KMS_KUBERNETES_SERVICE_ACCOUNT_DEFAULT_TOKEN_PATH
 	}
 
 	if token == "" {

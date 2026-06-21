@@ -1,6 +1,6 @@
-# Packer Plugin Infisical
+# Packer Plugin Hanzo KMS
 
-This `Infisical` multi-component plugin can be used with HashiCorp [Packer](https://developer.hashicorp.com/packer) to read secrets from Infisical.
+This `Hanzo KMS` multi-component plugin can be used with HashiCorp [Packer](https://developer.hashicorp.com/packer) to read secrets from Hanzo KMS.
 
 ## Installation
 
@@ -15,8 +15,8 @@ To install this plugin, copy and paste this code into your Packer configuration.
 ```hcl
 packer {
   required_plugins {
-    infisical = {
-      source  = "github.com/infisical/infisical"
+    kms = {
+      source  = "github.com/hanzokms/kms"
       version = ">=0.0.1"
     }
   }
@@ -25,7 +25,7 @@ packer {
 
 #### Manual installation
 
-You can find pre-built binary releases of the plugin [here](https://github.com/infisical/packer-plugin-infisical/releases).
+You can find pre-built binary releases of the plugin [here](https://github.com/hanzokms/packer-plugin/releases).
 
 Once you have downloaded the latest archive corresponding to your target OS, uncompress it to retrieve the plugin binary file corresponding to your platform.
 
@@ -33,7 +33,7 @@ To install the plugin, please follow the Packer documentation on [installing a p
 
 ### From Sources
 
-If you prefer to build the plugin from sources, clone the GitHub repository locally and run the command `go build` from the root directory. Upon successful compilation, a `packer-plugin-infisical` plugin binary file can be found in the root directory.
+If you prefer to build the plugin from sources, clone the GitHub repository locally and run the command `go build` from the root directory. Upon successful compilation, a `packer-plugin-kms` plugin binary file can be found in the root directory.
 
 To install the compiled plugin, please follow the official Packer documentation on [installing a plugin](https://developer.hashicorp.com/packer/docs/plugins#installing-plugins).
 

@@ -1,7 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-data "infisical-secrets" "dev-secrets" {
+data "kms-secrets" "dev-secrets" {
   folder_path = "/"
   env_slug    = "dev"
   host        = "http://localhost:8080"
@@ -14,7 +14,7 @@ data "infisical-secrets" "dev-secrets" {
 }
 
 locals {
-  secrets = data.infisical-secrets.dev-secrets.secrets
+  secrets = data.kms-secrets.dev-secrets.secrets
 }
 
 source "null" "basic-example" {

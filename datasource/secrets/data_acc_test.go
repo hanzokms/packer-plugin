@@ -18,12 +18,12 @@ import (
 //go:embed test-fixtures/template.pkr.hcl
 var testDatasourceHCL2Basic string
 
-// Run with: INFISICAL_SERVICE_TOKEN=... PACKER_ACC=1 go test -count 1 -v ./datasource/secrets/data_acc_test.go
+// Run with: KMS_SERVICE_TOKEN=... PACKER_ACC=1 go test -count 1 -v ./datasource/secrets/data_acc_test.go
 //
 // Folder / in dev environment must contain a secret "FOO" with value "bar" for this test to pass.
-func TestAccInfisicalSecrets(t *testing.T) {
+func TestAccKMSSecrets(t *testing.T) {
 	testCase := &acctest.PluginTestCase{
-		Name: "infisical_secrets_datasource_basic_test",
+		Name: "kms_secrets_datasource_basic_test",
 		Setup: func() error {
 			return nil
 		},
@@ -31,7 +31,7 @@ func TestAccInfisicalSecrets(t *testing.T) {
 			return nil
 		},
 		Template: testDatasourceHCL2Basic,
-		Type:     "infisical-secrets",
+		Type:     "kms-secrets",
 		Check: func(buildCommand *exec.Cmd, logfile string) error {
 			if buildCommand.ProcessState != nil {
 				if buildCommand.ProcessState.ExitCode() != 0 {

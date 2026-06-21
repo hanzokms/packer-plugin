@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/hashicorp/packer-plugin-sdk/plugin"
-	"github.com/infisical/packer-plugin-infisical/datasource/secrets"
-	"github.com/infisical/packer-plugin-infisical/version"
+	"github.com/hanzokms/packer-plugin/datasource/secrets"
+	"github.com/hanzokms/packer-plugin/version"
 )
 
 func main() {

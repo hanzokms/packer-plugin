@@ -1,11 +1,11 @@
-The Secrets data source displays secrets within an Infisical folder.
+The Secrets data source displays secrets within an Hanzo KMS folder.
 
 -> **Note:** Data sources is a feature exclusively available to HCL2 templates.
 
 Basic examples of usage:
 
 ```hcl
-data "infisical-secrets" "dev-secrets" {
+data "kms-secrets" "dev-secrets" {
   folder_path = "/"
   env_slug    = "dev"
   project_id  = "00000000-0000-0000-0000-000000000000"
@@ -18,7 +18,7 @@ data "infisical-secrets" "dev-secrets" {
 
 # usage example of the data source output
 locals {
-  secrets = data.infisical-secrets.dev-secrets.secrets
+  secrets = data.kms-secrets.dev-secrets.secrets
   secret_foo_value  = secrets["FOO"].secret_value
 }
 ```
@@ -39,11 +39,11 @@ locals {
 
 <!-- Code generated from the comments of the Config struct in datasource/secrets/data.go; DO NOT EDIT MANUALLY -->
 
-- `host` (string) - The host URL of your Infisical instance. If a value isn't provided, INFISICAL_HOST may be used. Default: https://app.infisical.com
+- `host` (string) - The host URL of your Hanzo KMS instance. If a value isn't provided, KMS_HOST may be used. Default: https://kms.hanzo.ai
 
 - `folder_path` (string) - The secret path to list secrets from. Default: /
 
-- `universal_auth` (UniversalAuth) - Configuration for Infisical Universal Authentication.
+- `universal_auth` (UniversalAuth) - Configuration for Hanzo KMS Universal Authentication.
 
 <!-- End of code generated from the comments of the Config struct in datasource/secrets/data.go; -->
 
@@ -53,7 +53,7 @@ locals {
 
 <!-- Code generated from the comments of the UniversalAuth struct in datasource/secrets/data.go; DO NOT EDIT MANUALLY -->
 
-- `client_id` (string) - The Client ID for Infisical Universal Authentication.
+- `client_id` (string) - The Client ID for Hanzo KMS Universal Authentication.
 
 <!-- End of code generated from the comments of the UniversalAuth struct in datasource/secrets/data.go; -->
 
@@ -61,7 +61,7 @@ locals {
 
 <!-- Code generated from the comments of the UniversalAuth struct in datasource/secrets/data.go; DO NOT EDIT MANUALLY -->
 
-- `client_secret` (string) - The Client Secret for Infisical Universal Authentication. You may use INFISICAL_UNIVERSAL_AUTH_CLIENT_SECRET env variable instead.
+- `client_secret` (string) - The Client Secret for Hanzo KMS Universal Authentication. You may use KMS_UNIVERSAL_AUTH_CLIENT_SECRET env variable instead.
 
 <!-- End of code generated from the comments of the UniversalAuth struct in datasource/secrets/data.go; -->
 
@@ -97,10 +97,10 @@ Returned secrets are in key/object pairs. Each Secret object contains data about
 
 ## Authentication
 
-Basic example of an Infisical Secrets data source authentication using universal auth:
+Basic example of an Hanzo KMS Secrets data source authentication using universal auth:
 
 ```hcl
-data "infisical-secrets" "dev-secrets" {
+data "kms-secrets" "dev-secrets" {
   folder_path = "/"
   env_slug    = "dev"
   project_id  = "00000000-0000-0000-0000-000000000000"
@@ -112,4 +112,4 @@ data "infisical-secrets" "dev-secrets" {
 }
 ```
 
-`client_secret` may be left blank if you're using the `INFISICAL_UNIVERSAL_AUTH_CLIENT_SECRET` environment variable.
+`client_secret` may be left blank if you're using the `KMS_UNIVERSAL_AUTH_CLIENT_SECRET` environment variable.
